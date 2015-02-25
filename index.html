@@ -1,0 +1,41 @@
+<head>
+  <title>StoryPost - Tell Your Story to the World</title>
+  <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <div class="container">
+    {{> layout}}
+  </div>
+</body>
+
+<template name="addPost">
+    <section class="addPost">
+        <form>
+            <input type="text" name="title" class="title" placeholder="Title" required><br>
+            <textarea class="story" placeholder="Write to your heart's content!"></textarea><br>
+            <input type="text" name="author" class="author" placeholder="Pen name" required><br>
+
+            <input type="submit" value="Post!">
+        </form>
+    </section><!-- end .addPost -->
+</template>
+
+<template name="postList">
+    <section class="postList">
+        {{#each posts}}
+            <article>
+                <h3>{{title}}</h3>
+                <p>
+                    {{story}}
+                </p>
+                <small>
+                    <p>
+                        — {{author}}, published on {{date}}
+                        <i class="fa fa-trash delete"></i>
+                    </p>
+                </small>
+            </article>
+        {{/each}}
+    </section><!-- end .main -->
+</template>
